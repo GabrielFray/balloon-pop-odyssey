@@ -1,0 +1,162 @@
+.content__main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.preview__panel {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.balloon__points {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 16px;
+}
+
+.points,
+.remains {
+  font-size: 55px;
+  font-weight: 500;
+  font-family: var(--font-family-inter);
+}
+
+.best__score > p,
+span {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: var(--font-family-inter);
+}
+
+.timer__container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.timer__image {
+  width: 190px;
+  height: 180px;
+}
+
+.timer__number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: #ef1d1d;
+  font-weight: 500;
+  font-family: var(--font-family-inter);
+}
+
+.content__balloons {
+  background-image: url("../assets/campo.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  column-gap: 45px;
+  row-gap: 35px;
+  padding: 25px;
+}
+
+.balloon,
+.balloon__survivor {
+  width: 55px;
+  height: 65px;
+  user-select: none;
+}
+
+.balloon__survivor {
+  position: relative;
+}
+
+.balloon__survivor,
+.balloon:hover {
+  cursor: crosshair;
+}
+
+.return {
+  width: 135px;
+  height: 130px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.return:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.level__up {
+  position: fixed;
+  top: 90%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.level__up.show {
+  opacity: 1;
+}
+
+.level__text {
+  font-size: 50px;
+  font-weight: 600;
+  font-family: var(--font-family-inter);
+}
+
+.congratulations {
+  display: none;
+  background-image: url("../assets/balloons-rain.gif");
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: cover;
+  font-size: 80px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: rgba(202, 45, 45, 0.903);
+  margin: 0%;
+  border: 0%;
+  padding: 0%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+}

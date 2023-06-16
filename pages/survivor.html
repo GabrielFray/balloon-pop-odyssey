@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Balloon Pop Odyssey</title>
+    <link
+      rel="shortcut icon"
+      href="../assets/balloon-icon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <main class="content__main">
+      <aside class="preview__panel">
+        <div class="balloon__points">
+          <div class="pop__balloons">
+            <img
+              src="../assets/balao_azul_grande_estourado.svg"
+              alt="Balão azul estourado"
+            />
+            <span id="points__survivor" class="points"></span>
+          </div>
+        </div>
+        <div class="best__score">
+          <p>Melhor pontuação: <span id="score"></span></p>
+        </div>
+        <img
+          class="return"
+          src="../assets/botao_de_voltar.svg"
+          alt="Seta de voltar"
+        />
+      </aside>
+      <div id="content__ballons-survivor" class="content__balloons"></div>
+    </main>
+    <script src="../main.js"></script>
+    <script src="../js/survivor.js"></script>
+  </body>
+</html>
