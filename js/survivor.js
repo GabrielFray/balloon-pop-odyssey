@@ -18,8 +18,17 @@ let balloonsPopped = 0;
 let score = 0;
 balloonPoints.innerHTML = points;
 
-const poppedBalloon = (event) => {
-  const balloon = event.target;
+const updateBestScore = () => {
+  const bestScoreLocalStorage = localStorage.getItem(
+    "@balloonPopOdyssey:bestScore"
+  );
+  bestScore.innerHTML =
+    bestScoreLocalStorage !== null && !isNaN(bestScoreLocalStorage)
+      ? bestScoreLocalStorage
+      : 0;
+};
+
+const poppedBalloon = (balloon) => {
   if (!balloon.classList.contains("balloon-popped")) {
     balloon.classList.add("balloon-popped");
     balloon.src = "../assets/balao_azul_grande_estourado.svg";
@@ -52,14 +61,7 @@ const createRandomBalloon = () => {
   balloon.draggable = false;
   balloon.classList.add("balloon__survivor");
 
-  const bestScoreLocalStorage = localStorage.getItem(
-    "@balloonPopOdyssey:bestScore"
-  );
-
-  bestScore.innerHTML =
-    bestScoreLocalStorage !== null && Number(bestScoreLocalStorage) !== NaN
-      ? bestScoreLocalStorage
-      : 0;
+  updateBestScore();
 
   const containerWidth = balloonContainer.offsetWidth;
   const containerHeight = balloonContainer.offsetHeight;
@@ -77,10 +79,13 @@ const createRandomBalloon = () => {
 
   balloonContainer.appendChild(balloon);
 
-  balloon.addEventListener("click", poppedBalloon);
+  balloon.addEventListener("click", (event) => {
+    event.stopPropagation();
+    poppedBalloon(balloon);
+  });
 };
 
-const endGame = () => {
+const handleGameLost = () => {
   const bestScoreLocalStorage = localStorage.getItem(
     "@balloonPopOdyssey:bestScore"
   );
@@ -89,7 +94,7 @@ const endGame = () => {
 
   if (Number(bestScoreLocalStorage) < score) {
     localStorage.setItem("@balloonPopOdyssey:bestScore", score);
-    bestScore.innerHTML = score;
+    updateBestScore();
   }
 
   alert(`Fim de jogo! Sua pontuação final: ${points}`);
@@ -99,14 +104,14 @@ const endGame = () => {
   balloonPoints.innerHTML = 0;
 };
 
-const startGame = () => {
+const handleGameStart = () => {
   balloonPopOdysseyTheme.play();
   createRandomBalloon();
 };
 
 balloonContainer.addEventListener("click", (event) => {
   if (event.target === balloonContainer) {
-    endGame();
+    handleGameLost();
   }
 });
 

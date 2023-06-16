@@ -69,7 +69,7 @@ const poppedBalloon = (balloon) => {
     updateCounters();
 
     if (points === QUANTITY_BALLOONS[arcadeLevel]) {
-      if (arcadeLevel < 2) {
+      if (arcadeLevel < QUANTITY_BALLOONS.length - 1) {
         score += QUANTITY_BALLOONS[arcadeLevel];
         points = 0;
         arcadeLevel++;
@@ -77,8 +77,7 @@ const poppedBalloon = (balloon) => {
         updateCounters();
         setTimeout(() => {
           showLevelUp(arcadeLevel + 1);
-        }, 100);
-
+        }, 300);
         createLevelBallon();
       } else {
         score += points;
@@ -178,14 +177,3 @@ const handleGameStart = () => {
 
   createLevelBallon();
 };
-
-// const modalGameOver = document.getElementById("modal__game-over");
-
-// const restartGameButton = document.getElementById("restart__game-button");
-
-// const restartGame = () => {
-//   modalGameOver.style.display = "flex";
-//   startGame();
-// };
-
-// restartGameButton.addEventListener("click", restartGame);
