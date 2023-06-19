@@ -71,11 +71,11 @@ const createRandomBalloon = () => {
   const maxX = containerWidth - balloonWidth;
   const maxY = containerHeight - balloonHeight;
 
-  const randomX = Math.floor(Math.random() * (maxX + 1));
-  const randomY = Math.floor(Math.random() * (maxY + 1));
+  const randomXposition = Math.floor(Math.random() * (maxX + 1));
+  const randomYposition = Math.floor(Math.random() * (maxY + 1));
 
-  balloon.style.left = randomX + "px";
-  balloon.style.top = randomY + "px";
+  balloon.style.left = randomXposition + "px";
+  balloon.style.top = randomYposition + "px";
 
   balloonContainer.appendChild(balloon);
 

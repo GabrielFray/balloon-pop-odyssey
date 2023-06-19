@@ -136,7 +136,7 @@ const handleGameLost = () => {
   createLevelBallon();
 
   setTimeout(() => {
-    alert("Voce perdeu, tente novamente!");
+    alert("Você perdeu, tente novamente!");
   }, 100);
 };
 
